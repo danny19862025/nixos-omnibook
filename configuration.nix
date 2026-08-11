@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs,pkgs-unstable, ... }:
 #close lid not suspend laptop
 {
 services.logind.settings.Login = {
@@ -110,6 +110,7 @@ networking.extraHosts = "10.8.0.1 wordpress.local";
 	 flatpak
 	fastfetch
 	hyfetch
+  pkgs-unstable.fetch  
 	brave
         alacritty
         google-chrome
@@ -150,11 +151,10 @@ networking.extraHosts = "10.8.0.1 wordpress.local";
     gnumake
     unzip
     nodejs
-    python3
 obsidian
          virt-manager
           qemu
-     (python3.withPackages (ps: [ ps.tkinter ]))
+     (python3.withPackages (ps: [ ps.tkinter ps.pygame  ]))
       ];
 
 
